@@ -2,30 +2,31 @@
 <html>
 
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles.css" />
+    
   <title>Shopping List</title>
 </head>
 
 <body>
-  <div class="header">
-    <div class="title">
-      <h2>Your Shopping List</h2>
-      <h1>Don't forget what's on your list</h1>
+  <div class="ui middle aligned aligned grid">
+    <div class="column ui raised segment" id="box">
+      <div class="ui center aligned header">
+        <h2 style="font-family: Abel;">Shopping List</h2>
+      </div>
+      <div id="app">
+        <section class="image-gallery content">
+          <div class="image" v-for="item in items">
+            <h2 style="font-family: Abel;">--> {{item.title}}: {{item.description}}</h2>
+          </div>
+      </div>
     </div>
   </div>
-  <div id="app" class="content">
-    <section class="image-gallery">
-      <div class="image" v-for="item in items">
-        <h2>{{item.title}}</h2>
-        <p>{{item.description}}</p>
-      </div>
-  </div>
   <div class="footer">
-    <a href="/admin.html">Admin</a>
+    <p>Go to: <a href="/admin.html" style="text-decoration: underline; color:dodgerblue;">Admin</a></p>
+    <p>Go to: <a href="https://github.com/kamrilarsen/creativeProject4" style="text-decoration: underline; color:dodgerblue;">GitHub Repository</a></p>
   </div>
-  <footer class="footer"><a href="https://github.com/kamrilarsen/creativeProject4">GitHub Repository</a></footer>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
   <script src="/script.js"></script>

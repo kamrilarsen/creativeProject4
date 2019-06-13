@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Abel" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
   <title>Shopping List</title>
 </head>
@@ -31,7 +31,7 @@
     <div class="edit">
       <div class="form">
         <input v-model="findTitle" placeholder="Search">
-        <div class="suggestions" v-if="suggestions.length > 0">
+        <div class="suggestions" style="background-color: white" v-if="suggestions.length > 0">
           <div class="suggestion" v-for="s in suggestions" @click="selectItem(s)">{{s.title}}</div>
         </div>
       </div>
@@ -44,6 +44,9 @@
         <button @click="deleteItem(findItem)">Delete</button>
         <button @click="editItem(findItem)">Edit</button>
       </div>
+    </div>
+    <div class="footer" style="padding-left:0">
+        <p>Go to: <a href="/.." style="text-decoration: underline; color:dodgerblue;">Shopping List</a></p>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
