@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Shopping List</title>
+</head>
+
+<body>
+  <div id="admin" class="content">
+  <h1>Shopping List: The Admin Page!</h1>
+    <div class="heading">
+      <h2>Add an Item</h2>
+    </div>
+    <div class="add">
+      <div class="form">
+        <div><input v-model="title" placeholder="Title"></div>
+        <div><textarea v-model="description" placeholder="Description of Item"></textarea></div>
+        <p></p>
+        <button @click="addNewItem">Add Item</button>
+      </div>
+      <div class="upload" v-if="addItem">
+        <h2>{{addItem.title}}</h2>
+        <p>{{addItem.description}}</p>
+      </div>
+    </div>
+    <div class="heading">
+      <h2>Edit/Delete an Item</h2>
+    </div>
+    <div class="edit">
+      <div class="form">
+        <input v-model="findTitle" placeholder="Search">
+        <div class="suggestions" v-if="suggestions.length > 0">
+          <div class="suggestion" v-for="s in suggestions" @click="selectItem(s)">{{s.title}}</div>
+        </div>
+      </div>
+      <div class="upload" v-if="findItem">
+        <input v-model="findItem.title">
+        <textarea v-model="findItem.description"></textarea>
+        <p></p>
+      </div>
+      <div class="actions" v-if="findItem">
+        <button @click="deleteItem(findItem)">Delete</button>
+        <button @click="editItem(findItem)">Edit</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+  <script src="./admin.js"></script>
+</body>
+
+</html>
